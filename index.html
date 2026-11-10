@@ -59,7 +59,8 @@ h2.big small{display:block;font-size:.85rem;font-weight:400;letter-spacing:0;col
 .stat{background:var(--soft);border-radius:22px;padding:var(--card);text-align:left}
 .stat b{display:block;font-size:clamp(2rem,6vw,3.2rem);letter-spacing:-.05em;line-height:1}
 .stat span{display:block;margin-top:8px;font-size:.85rem;color:var(--muted)}
-.brands{--lh:clamp(14px,5vw,46px);display:flex;flex-wrap:nowrap;align-items:center;justify-content:center;gap:clamp(10px,4vw,56px);margin-top:clamp(24px,4vw,40px);padding:6px 2px}
+.brands-label{margin:clamp(24px,4vw,40px) 0 0;text-align:center;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.brands{--lh:clamp(14px,5vw,46px);display:flex;flex-wrap:nowrap;align-items:center;justify-content:center;gap:clamp(10px,4vw,56px);margin-top:8px;padding:6px 2px}
 .brands>*{display:flex;align-items:center;flex:0 0 auto;transition:opacity .2s;opacity:.9}
 .brands a:hover,.brands a:focus-visible{opacity:1}
 .brands a:focus-visible{outline:2px solid var(--fg);outline-offset:4px;border-radius:4px}
@@ -318,8 +319,9 @@ footer p{margin:0 0 8px}.disc{max-width:58rem;margin:0 auto 12px!important;line-
 <div class="cta"><a class="btn" href="#competitions">Track Records</a><a class="btn alt" href="#contact">Work Together</a></div>
 <ul class="proof"><li>Every result listed</li><li>Since 1998</li></ul>
 <div class="stats" id="stats"></div>
+<p class="brands-label">Featured On</p>
 <div class="brands" aria-label="Brands and communities">
-<span class="b-dement"><img src="images/dement.webp" alt="Dement – Fight for Passion" width="1091" height="360"></span>
+<a class="b-dement" href="https://www.instagram.com/p/jqvBeJJtur/" target="_blank" rel="noopener" aria-label="Dement"><img src="images/dement.webp" alt="Dement – Fight for Passion" width="1091" height="360"></a>
 <a class="b-myya" href="https://www.instagram.com/p/DQ4CxirgXL1/" target="_blank" rel="noopener" aria-label="MYYA"><img src="images/myya.webp" alt="Malaysia Yo-Yo Association (MYYA)" width="1626" height="685"></a>
 <a class="b-duncan" href="https://www.youtube.com/watch?v=mNagFcG2wyE" target="_blank" rel="noopener" aria-label="Duncan"><img src="images/duncan.webp" alt="Duncan" width="800" height="269"></a>
 <a class="b-apyoyo" href="https://www.youtube.com/watch?v=B23LoTfgE3A&amp;t=35s" target="_blank" rel="noopener" aria-label="APYOYO"><img src="images/apyoyo.webp" alt="APYOYO" width="598" height="600"></a>
