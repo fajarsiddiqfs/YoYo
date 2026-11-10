@@ -13,6 +13,7 @@
 <meta name="twitter:card" content="summary">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Fajar Siddiq","jobTitle":"Professional Yo-Yo Player","description":"Yo-yo player, competitor, performer, judge, mentor, coach, product designer and community builder since 1998.","email":"mailto:info@euphorya.co","sameAs":["https://instagram.com/fajarsiddiq","https://media.fajarsiddiq.com/"]}</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='44' fill='%23111'/%3E%3Ccircle cx='50' cy='50' r='14' fill='%23fff'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://pub-80cf938ac23747d88878235161f9dcd3.r2.dev" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -172,12 +173,14 @@ footer .socials{max-width:272px;margin-left:auto;margin-right:auto}
 .vid{aspect-ratio:16/9;border-radius:18px;background:var(--soft);display:flex;align-items:center;justify-content:center;color:var(--muted);overflow:hidden}.vid iframe{width:100%;height:100%;border:0}
 /* freestyle video slider */
 .vsec{width:100%;margin:clamp(40px,7vw,64px) 0 0}
-.vsec h3{font-size:clamp(1.3rem,4vw,1.6rem);letter-spacing:-.03em;text-align:center;margin:0 0 18px}
 .vtrack{display:flex;gap:var(--gap);overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .vtrack::-webkit-scrollbar{display:none}
-.vtrack figure{margin:0;flex:0 0 100%;scroll-snap-align:center;min-width:0}
-.vtrack video{display:block;width:100%;aspect-ratio:16/9;background:#000;border-radius:18px;object-fit:contain}
-.vtrack figcaption{margin-top:10px;text-align:center;font-size:.85rem;color:var(--muted)}
+.vtrack figure{margin:0;flex:0 0 100%;scroll-snap-align:center;min-width:0;position:relative;cursor:pointer;border-radius:18px;overflow:hidden;aspect-ratio:16/9;background:#0b0b0d}
+.vtrack video,.vtrack .vth{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
+.vtrack video{opacity:0;transition:opacity .35s}.vtrack video.ready{opacity:1}
+.vtrack .vplay{position:absolute;left:50%;top:50%;width:clamp(56px,9vw,84px);height:clamp(56px,9vw,84px);margin:calc(clamp(56px,9vw,84px)/-2) 0 0 calc(clamp(56px,9vw,84px)/-2);border-radius:50%;background:rgba(255,255,255,.92);color:#111;display:grid;place-items:center;box-shadow:0 6px 24px rgba(0,0,0,.28);transition:transform .2s}
+.vtrack figure:hover .vplay{transform:scale(1.07)}
+.vtrack .vplay svg{margin-left:3px}
 .vb{width:44px;height:44px;border-radius:50%;border:0;background:var(--soft);color:var(--fg);font-size:18px;cursor:pointer;display:grid;place-items:center;flex:none}.vb[disabled]{opacity:.35;cursor:default}
 /* lightbox */
 .lb{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:rgba(8,10,18,.88);padding:max(20px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(20px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
@@ -192,6 +195,48 @@ footer .socials{max-width:272px;margin-left:auto;margin-right:auto}
 .lb.one .p,.lb.one .n{display:none}
 @media(max-width:560px){.lb .p,.lb .n{top:auto;bottom:max(18px,env(safe-area-inset-bottom));transform:none}.lb .p{left:calc(50% - 56px)}.lb .n{right:calc(50% - 56px)}.lb img{max-height:68vh}}
 body.lbo{overflow:hidden}
+/* video modal */
+.vm{position:fixed;inset:0;z-index:110;display:none;align-items:center;justify-content:center;background:rgba(10,10,12,.8);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);padding:max(14px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) max(14px,env(safe-area-inset-bottom)) max(12px,env(safe-area-inset-left))}
+.vm.open{display:flex}
+.vm-card{width:min(100%,1180px);max-height:100%;background:#000;color:#fff;border-radius:clamp(18px,3vw,28px);overflow:hidden;display:flex;flex-direction:column}
+.vm-head{display:flex;align-items:center;gap:14px;padding:clamp(12px,2vw,20px) clamp(14px,2.4vw,28px)}
+.vm-av{position:relative;flex:none;width:46px;height:46px;border-radius:50%;overflow:hidden;background:#1c1c20;border:1px solid #333;display:grid;place-items:center;font-size:.85rem;font-weight:700;letter-spacing:.02em}
+.vm-av img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.vm-who{display:flex;flex-direction:column;min-width:0;line-height:1.3}
+.vm-who b{font-size:1.1rem;letter-spacing:-.01em}
+.vm-who a{display:inline-flex;align-items:center;gap:8px;color:#fff;opacity:.85;text-decoration:none;font-size:.95rem}
+.vm-who a:hover{opacity:1;text-decoration:underline}
+.vm-who a svg{flex:none}
+.vm-x{margin-left:auto;flex:none;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.12);color:#fff;font-size:18px;cursor:pointer;display:grid;place-items:center}
+.vm-x:hover{background:rgba(255,255,255,.22)}
+.vm-stage{position:relative;width:100%;max-width:calc((100vh - 130px)*16/9);max-width:calc((100dvh - 130px)*16/9);margin:0 auto;aspect-ratio:16/9;background:#000;-webkit-user-select:none;user-select:none}
+.vm-stage:fullscreen{max-width:none;width:100%;height:100%;aspect-ratio:auto}
+.vm-stage:-webkit-full-screen{max-width:none;width:100%;height:100%;aspect-ratio:auto}
+.vm-stage video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#000;cursor:pointer}
+.vm-mid{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:clamp(22px,8vw,110px);pointer-events:none;transition:opacity .25s}
+.vm-mid button{pointer-events:auto;border:0;cursor:pointer;display:grid;place-items:center;border-radius:50%}
+.vm-pp{width:clamp(58px,8vw,78px);height:clamp(58px,8vw,78px);background:#e6e6e6;color:#111}
+.vm-pp:hover{background:#fff}
+.vm-sk{width:clamp(44px,6vw,58px);height:clamp(44px,6vw,58px);background:rgba(255,255,255,.08);color:#fff}
+.vm-sk:hover{background:rgba(255,255,255,.18)}
+.vm-pp .ic-pause{display:none}.vm.playing .vm-pp .ic-play{display:none}.vm.playing .vm-pp .ic-pause{display:grid}
+.vm-pp i{display:grid;place-items:center;font-style:normal}
+.vm-bar{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:clamp(8px,1.6vw,16px);padding:44px clamp(12px,2.2vw,24px) clamp(8px,1.4vw,16px);background:linear-gradient(to top,rgba(0,0,0,.85),rgba(0,0,0,0));font-size:.9rem;font-variant-numeric:tabular-nums;transition:opacity .25s}
+.vm-bar button{flex:none;width:40px;height:40px;border:0;background:none;color:#fff;cursor:pointer;display:grid;place-items:center;border-radius:50%}
+.vm-bar button:hover{background:rgba(255,255,255,.14)}
+.vm-bar .off{display:none}.vm.muted .vm-bar .on{display:none}.vm.muted .vm-bar .off{display:block}
+.vm.idle .vm-mid,.vm.idle .vm-bar{opacity:0;pointer-events:none}
+.vm.idle .vm-stage video{cursor:none}
+.vm-bar input{-webkit-appearance:none;appearance:none;flex:1;min-width:0;height:24px;background:transparent;cursor:pointer;margin:0}
+.vm-bar input::-webkit-slider-runnable-track{height:4px;border-radius:99px;background:linear-gradient(to right,#fff var(--p,0%),rgba(255,255,255,.3) var(--p,0%))}
+.vm-bar input::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:#fff;margin-top:-6px;border:0}
+.vm-bar input::-moz-range-track{height:4px;border-radius:99px;background:rgba(255,255,255,.3)}
+.vm-bar input::-moz-range-progress{height:4px;border-radius:99px;background:#fff}
+.vm-bar input::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#fff;border:0}
+.vm-spin{position:absolute;left:50%;top:50%;width:46px;height:46px;margin:-23px 0 0 -23px;border-radius:50%;border:3px solid rgba(255,255,255,.25);border-top-color:#fff;animation:vmspin .8s linear infinite;display:none;pointer-events:none}
+.vm.loading .vm-spin{display:block}
+@keyframes vmspin{to{transform:rotate(360deg)}}
+@media(max-width:560px){.vm-av{width:40px;height:40px}.vm-bar{font-size:.8rem}.vm-bar button{width:36px;height:36px}}
 /* contact + footer */
 .contact{text-align:center;background:linear-gradient(145deg,#fff,#e7e7ec);border:1.5px solid #d4d4da;color:var(--fg);border-radius:28px;padding:clamp(40px,8vw,80px) var(--gutter)}
 .contact h2{font-size:clamp(2.2rem,8vw,4rem);letter-spacing:-.04em;line-height:1}.contact p{color:var(--muted);margin:14px auto 26px;max-width:36em}
@@ -244,7 +289,7 @@ footer p{margin:0 0 8px}.disc{max-width:58rem;margin:0 auto 12px!important;line-
 <h2 class="big">Videos <span class="g">&amp; Gallery</span><small>Drop photos into the images/ folder named gallery-1.webp to gallery-8.webp and they appear here.</small></h2>
 <div class="track" id="gal"></div>
 <div class="cbar"><button class="cb" data-d="-1" aria-label="Previous" disabled>←</button><div class="dots" id="dots" role="group" aria-label="Slide pages"></div><button class="cb" data-d="1" aria-label="Next">→</button></div>
-<div class="vsec"><h3>Freestyle Videos</h3>
+<div class="vsec">
 <div class="vtrack" id="vtrack" tabindex="0" role="region" aria-label="Freestyle video slider"></div>
 <div class="ybar"><button class="vb" data-d="-1" aria-label="Previous video" disabled>←</button><div class="ydots" id="vdots" role="group" aria-label="Choose video"></div><button class="vb" data-d="1" aria-label="Next video">→</button></div></div>
 </section>
@@ -299,6 +344,12 @@ footer p{margin:0 0 8px}.disc{max-width:58rem;margin:0 auto 12px!important;line-
 <footer><div class="wrap"><nav class="socials" aria-label="Social links"><a href="https://fajarsiddiq.com/instagram" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg></a><a href="https://fajarsiddiq.com/youtube" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a><a href="https://fajarsiddiq.com/tiktok" target="_blank" rel="noopener" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a><a href="https://fajarsiddiq.com/twitter" target="_blank" rel="noopener" aria-label="X / Twitter" title="X / Twitter"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a><a href="https://fajarsiddiq.com/threads" target="_blank" rel="noopener" aria-label="Threads" title="Threads"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 7.847c.98-1.454 2.568-2.256 4.478-2.256h.044c3.194.02 5.097 1.975 5.287 5.388.108.046.216.094.321.142 1.49.7 2.58 1.761 3.154 3.07.797 1.82.871 4.79-1.548 7.158-1.85 1.81-4.094 2.628-7.277 2.65Zm1.003-11.69c-.242 0-.487.007-.739.021-1.836.103-2.98.946-2.916 2.143.067 1.256 1.452 1.839 2.784 1.767 1.224-.065 2.818-.543 3.086-3.71a10.5 10.5 0 0 0-2.215-.221z"/></svg></a><a href="https://fajarsiddiq.com/facebook" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg></a><a href="https://fajarsiddiq.com/telegramc" target="_blank" rel="noopener" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></a><a href="https://fajarsiddiq.com/whatsappc" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg></a><a href="https://fajarsiddiq.com/google" target="_blank" rel="noopener" aria-label="Google" title="Google"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg></a><a href="https://fajarsiddiq.com/substack" target="_blank" rel="noopener" aria-label="Substack" title="Substack"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg></a></nav><p class="disc">Competition results, dates and placements shown here are compiled from my own records and may contain omissions or errors, and all brand names, event names, logos and trademarks mentioned belong to their respective owners, with no affiliation, sponsorship or endorsement implied unless clearly stated, so please get in touch if you spot something that needs correcting or removing.</p><p>© <span id="yr"></span> Fajar Siddiq</p></div></footer>
 
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" aria-hidden="true"><button class="x" aria-label="Close">✕</button><button class="p" aria-label="Previous photo">←</button><figure><img id="lbi" alt=""><figcaption id="lbc"></figcaption></figure><button class="n" aria-label="Next photo">→</button></div>
+<div class="vm" id="vm" role="dialog" aria-modal="true" aria-label="Video player" aria-hidden="true"><div class="vm-card">
+<div class="vm-head"><div class="vm-av"><span>FS</span><img src="images/profile.webp" alt="Fajar Siddiq" onerror="this.remove()"></div><div class="vm-who"><b>Fajar Siddiq</b><a href="https://youtube.com/fajarsiddiq" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg><span>@fajarsiddiq</span></a></div><button class="vm-x" id="vmx" aria-label="Close video">✕</button></div>
+<div class="vm-stage" id="vms"><video id="vmv" playsinline preload="auto"></video><div class="vm-spin" aria-hidden="true"></div>
+<div class="vm-mid"><button class="vm-sk" data-s="-10" aria-label="Back 10 seconds"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.6 12a8.4 8.4 0 1 0 2.5-6"/><path d="M3.6 3.8v4.7h4.7"/><text x="12" y="15.4" text-anchor="middle" font-size="7.6" font-weight="700" fill="currentColor" stroke="none" font-family="Inter,system-ui,sans-serif">10</text></svg></button><button class="vm-pp" id="vmpp" aria-label="Play or pause"><i class="ic-play"><svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><path d="M8 5.2v13.6a.6.6 0 0 0 .92.5l10.6-6.8a.6.6 0 0 0 0-1L8.92 4.7A.6.6 0 0 0 8 5.2z"/></svg></i><i class="ic-pause"><svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4.2" height="14" rx="1"/><rect x="13.8" y="5" width="4.2" height="14" rx="1"/></svg></i></button><button class="vm-sk" data-s="10" aria-label="Forward 10 seconds"><svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 12a8.4 8.4 0 1 1-2.5-6"/><path d="M20.4 3.8v4.7h-4.7"/><text x="12" y="15.4" text-anchor="middle" font-size="7.6" font-weight="700" fill="currentColor" stroke="none" font-family="Inter,system-ui,sans-serif">10</text></svg></button></div>
+<div class="vm-bar"><span id="vmt">0:00</span><input type="range" id="vmr" min="0" max="1000" step="1" value="0" aria-label="Seek"><span id="vmd">0:00</span><button id="vmm" aria-label="Mute or unmute"><svg class="on" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M3 9.5v5h3.6l4.9 4V5.5l-4.9 4H3z"/><path d="M14.6 8.4a5 5 0 0 1 0 7.2M16.9 5.9a8.6 8.6 0 0 1 0 12.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="off" viewBox="0 0 24 24" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M3 9.5v5h3.6l4.9 4V5.5l-4.9 4H3z"/><path d="M15 9.5l5 5M20 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button><button id="vmf" aria-label="Fullscreen"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button></div>
+</div></div></div>
 <script>
 const $=s=>document.querySelector(s);
 /* ---------- DATA: add a new result with E(year,country,event,division,place[,label]) ---------- */
@@ -385,7 +436,13 @@ $("#gal").innerHTML=Array.from({length:8},(_,i)=>`<figure>Photo ${i+1}<img src="
 (function(){const B="https://pub-80cf938ac23747d88878235161f9dcd3.r2.dev/fsyoyo/";
  const V=["DCW%20Profile%20-%20Fajar%20Siddiq.mp4","MIYO20214.mp4","comboHK.mp4","osgrind.mp4","sgoffstringcombo.mp4","solohamHK.mp4","solohamsg.mp4"];
  const t=$("#vtrack"),dots=$("#vdots"),bs=[...document.querySelectorAll(".vb")];
- t.innerHTML=V.map((f,i)=>`<figure><video controls playsinline preload="metadata" src="${B+f}#t=0.1" aria-label="Freestyle video ${i+1}"></video><figcaption>Freestyle video ${i+1} of ${V.length}</figcaption></figure>`).join("");
+ t.innerHTML=V.map((f,i)=>`<figure tabindex="0" role="button" aria-label="Play video ${i+1} of ${V.length}" data-src="${B+f}"><img class="vth" alt="" src="images/video-${i+1}.webp" decoding="async"><video muted playsinline preload="none" tabindex="-1" aria-hidden="true"></video><span class="vplay" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M8 5.2v13.6a.6.6 0 0 0 .92.5l10.6-6.8a.6.6 0 0 0 0-1L8.92 4.7A.6.6 0 0 0 8 5.2z"/></svg></span></figure>`).join("");
+ /* thumbnails: use images/video-N.webp if present, otherwise grab a frame from the video, only for slides that are on or next to the screen */
+ [...t.children].forEach(fig=>{const im=fig.querySelector(".vth"),vd=fig.querySelector("video");
+  const frame=()=>{if(fig.dataset.f)return;fig.dataset.f=1;vd.addEventListener("loadeddata",()=>vd.classList.add("ready"),{once:true});vd.preload="metadata";vd.src=fig.dataset.src+"#t=0.5"};
+  fig._near=false;fig._frame=frame;
+  im.addEventListener("error",()=>{im.remove();if(fig._near)frame()});
+  new IntersectionObserver((es,o)=>{if(es.some(e=>e.isIntersecting)){fig._near=true;o.disconnect();if(!im.isConnected)frame()}},{root:t,rootMargin:"0px 100% 0px 100%"}).observe(fig)});
  dots.innerHTML=V.map((_,k)=>`<button aria-label="Go to video ${k+1}" data-i="${k}"></button>`).join("");
  const step=()=>t.children[0].getBoundingClientRect().width+16;
  function upd(){const i=Math.min(V.length-1,Math.round(t.scrollLeft/step()));
@@ -393,9 +450,39 @@ $("#gal").innerHTML=Array.from({length:8},(_,i)=>`<figure>Photo ${i+1}<img src="
   bs[0].disabled=i<=0;bs[1].disabled=i>=V.length-1}
  bs.forEach(b=>b.addEventListener("click",()=>t.scrollBy({left:b.dataset.d*step()})));
  dots.addEventListener("click",e=>{const b=e.target.closest("button");if(b)t.scrollTo({left:b.dataset.i*step()})});
- t.addEventListener("scroll",upd,{passive:true});addEventListener("resize",upd);upd();
- const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)e.target.pause()}),{threshold:.5});
- t.querySelectorAll("video").forEach(v=>io.observe(v))})();
+ t.addEventListener("scroll",upd,{passive:true});addEventListener("resize",upd);upd()})();
+
+/* ---------- Video popup player ---------- */
+(function(){const vm=$("#vm"),v=$("#vmv"),st=$("#vms"),pp=$("#vmpp"),r=$("#vmr"),tt=$("#vmt"),dd=$("#vmd"),mu=$("#vmm"),fs=$("#vmf"),xb=$("#vmx");let from=null,idle;
+ const fmt=x=>{if(!isFinite(x))x=0;return Math.floor(x/60)+":"+String(Math.floor(x%60)).padStart(2,"0")};
+ const toggle=()=>{v.paused?v.play().catch(()=>{}):v.pause()};
+ function wake(){vm.classList.remove("idle");clearTimeout(idle);if(!v.paused)idle=setTimeout(()=>vm.classList.add("idle"),2600)}
+ function sync(){const d=v.duration||0;r.value=d?v.currentTime/d*1000:0;r.style.setProperty("--p",(r.value/10)+"%");tt.textContent=fmt(v.currentTime);dd.textContent=fmt(d)}
+ ["timeupdate","loadedmetadata","durationchange"].forEach(n=>v.addEventListener(n,sync));
+ ["waiting","loadstart","seeking"].forEach(n=>v.addEventListener(n,()=>vm.classList.add("loading")));
+ ["playing","canplay","error","pause"].forEach(n=>v.addEventListener(n,()=>vm.classList.remove("loading")));
+ v.addEventListener("play",()=>{vm.classList.add("playing");wake()});
+ v.addEventListener("pause",()=>{vm.classList.remove("playing");wake()});
+ v.addEventListener("ended",()=>{vm.classList.remove("playing","idle")});
+ v.addEventListener("volumechange",()=>vm.classList.toggle("muted",v.muted||v.volume==0));
+ const seek=d=>{v.currentTime=Math.max(0,Math.min(v.duration||0,v.currentTime+d));wake()};
+ vm.querySelectorAll(".vm-sk").forEach(b=>b.addEventListener("click",()=>seek(+b.dataset.s)));
+ pp.addEventListener("click",()=>{toggle();wake()});v.addEventListener("click",()=>{toggle();wake()});
+ r.addEventListener("input",()=>{v.currentTime=r.value/1000*(v.duration||0);wake()});
+ mu.addEventListener("click",()=>{v.muted=!v.muted;wake()});
+ fs.addEventListener("click",()=>{const d=document;if(d.fullscreenElement||d.webkitFullscreenElement){(d.exitFullscreen||d.webkitExitFullscreen).call(d)}else if(st.requestFullscreen)st.requestFullscreen();else if(st.webkitRequestFullscreen)st.webkitRequestFullscreen();else if(v.webkitEnterFullscreen)v.webkitEnterFullscreen()});
+ ["mousemove","touchstart","pointerdown"].forEach(n=>st.addEventListener(n,wake,{passive:true}));
+ function open(src,opener){from=opener;const th=opener&&opener.querySelector(".vth");v.poster=th&&th.complete&&th.naturalWidth?th.src:"";v.preload="auto";vm.classList.add("loading");v.src=src;v.currentTime=0;vm.classList.remove("idle","playing");vm.classList.add("open");vm.setAttribute("aria-hidden","false");document.body.classList.add("lbo");sync();v.play().catch(()=>{});xb.focus()}
+ function close(){clearTimeout(idle);v.pause();v.removeAttribute("src");v.removeAttribute("poster");v.load();vm.classList.remove("open","playing","idle","loading");vm.setAttribute("aria-hidden","true");document.body.classList.remove("lbo");if(from)from.focus()}
+ xb.addEventListener("click",close);vm.addEventListener("click",e=>{if(e.target==vm)close()});
+ const tr=$("#vtrack");
+ tr.addEventListener("click",e=>{const f=e.target.closest("figure");if(f)open(f.dataset.src,f)});
+ tr.addEventListener("keydown",e=>{const f=e.target.closest("figure");if(f&&(e.key=="Enter"||e.key==" ")){e.preventDefault();open(f.dataset.src,f)}});
+ addEventListener("keydown",e=>{if(!vm.classList.contains("open"))return;const tag=e.target.tagName;
+  if(e.key=="Escape")close();
+  else if(e.key==" "&&tag!="BUTTON"&&tag!="INPUT"&&tag!="A"){e.preventDefault();toggle();wake()}
+  else if(e.key=="ArrowLeft"&&tag!="INPUT"){seek(-5)}
+  else if(e.key=="ArrowRight"&&tag!="INPUT"){seek(5)}})})();
 (function(){const t=$("#gal"),bs=[...document.querySelectorAll(".cb")],dots=$("#dots");
  const per=()=>innerWidth>760?3:1.6,pages=()=>Math.max(1,Math.ceil((t.children.length-per())/1)+1);
  function sync(){const w=t.children[0].getBoundingClientRect().width+16,i=Math.round(t.scrollLeft/w),n=Math.max(1,t.children.length-Math.floor(per())+1);
