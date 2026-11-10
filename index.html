@@ -340,7 +340,7 @@ footer p{margin:0 0 8px}.disc{max-width:58rem;margin:0 auto 12px!important;line-
 
 <section class="wrap" id="contact"><div class="contact">
 <h2>Let’s collaborate.</h2><p>Performances, workshops, brand collaborations and yo-yo enquiries.</p>
-<ul class="offer"><li>Performances</li><li>Workshops</li><li>Judging &amp; coaching</li><li>Design &amp; branding</li></ul>
+<ul class="offer"><li>Performances</li><li>Workshops</li><li>Judging</li><li>Coaching</li><li>Mentoring</li><li>Product Design</li><li>Branding &amp; Marketing</li><li>Affiliate &amp; Reviews</li><li>Community Building</li><li>Product Testing</li><li>Talent Scouting</li><li>Content Creation</li><li>Brand Ambassadorship</li><li>Sponsorship &amp; Partnerships</li><li>Merchandise Development</li></ul>
 <div class="cta"><a class="btn" href="mailto:info@euphorya.co">Email Me</a><a class="btn" href="https://media.fajarsiddiq.com/" target="_blank" rel="noopener">Let’s Collab</a></div>
 </div></section>
 
@@ -437,7 +437,7 @@ $("#cols").innerHTML=[["Champion",n1,"c"],["Vice-Champion",n2,""],["Third place"
 $("#gal").innerHTML=Array.from({length:8},(_,i)=>`<figure>Photo ${i+1}<img src="images/gallery-${i+1}.webp" alt="Fajar Siddiq yo-yo photo ${i+1}" loading="lazy" onerror="this.remove()"></figure>`).join("");
 /* ---------- Freestyle video slider ---------- */
 (function(){const B="https://pub-80cf938ac23747d88878235161f9dcd3.r2.dev/fsyoyo/";
- const V=["DCW%20Profile%20-%20Fajar%20Siddiq.mp4","MIYO20214.mp4","comboHK.mp4","osgrind.mp4","sgoffstringcombo.mp4","solohamHK.mp4","solohamsg.mp4"];
+ const V=["manja.mp4","2015world-4a-preliminary-32-fajar-siddiq-1080-ytshorts.savetube.me.mp4","DCW%20Profile%20-%20Fajar%20Siddiq.mp4","spingear-shop-offstring-performance-in-tokyo-japan-480-ytshorts.savetube.me.mp4","spingear-shop-offstring-performance-in-tokyo-japan-ytmp4.savetube.vip.mp4","dement-clothing-presents-fajar-siddiq-4a-yo-yo-performance-at-the-wedding-1080-ytshorts.savetube.me.mp4","multi-toys-roadshow-4a-yo-yo-performance-480-ytshorts.savetube.me.mp4","MIYO20214.mp4","comboHK.mp4","osgrind.mp4","sgoffstringcombo.mp4","solohamHK.mp4","solohamsg.mp4"];
  const t=$("#vtrack"),dots=$("#vdots"),bs=[...document.querySelectorAll(".vb")];
  t.innerHTML=V.map((f,i)=>`<figure tabindex="0" role="button" aria-label="Play video ${i+1} of ${V.length}" data-src="${B+f}"><img class="vth" alt="" src="images/video-${i+1}.webp" decoding="async"><video muted playsinline preload="none" tabindex="-1" aria-hidden="true"></video><span class="vplay" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M8 5.2v13.6a.6.6 0 0 0 .92.5l10.6-6.8a.6.6 0 0 0 0-1L8.92 4.7A.6.6 0 0 0 8 5.2z"/></svg></span></figure>`).join("");
  /* thumbnails: use images/video-N.webp if present, otherwise grab a frame from the video, only for slides that are on or next to the screen */
