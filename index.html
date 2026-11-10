@@ -141,11 +141,12 @@ footer .socials{max-width:272px;margin-left:auto;margin-right:auto}
 .first small{display:block;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.78)}
 .first b{display:block;font-size:clamp(1.2rem,4.5vw,1.6rem);line-height:1.2;letter-spacing:-.02em}
 .first span{display:block;font-size:.9rem;color:rgba(255,255,255,.82)}
-.moments{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);margin-top:var(--gap)}
+.moments{display:grid;gap:var(--gap);margin-top:var(--gap)}
+.moments.pair{grid-template-columns:1fr 1fr}
 .moments figure{margin:0;cursor:zoom-in;min-width:0}
-.moments img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;background:var(--soft)}
+.moments img{display:block;width:100%;height:auto;border-radius:22px;background:var(--soft)}
+.moments.pair img{border-radius:18px}
 .moments figcaption{margin-top:8px;font-size:.8rem;line-height:1.4;color:var(--muted)}
-@media(max-width:560px){.moments{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.moments figure{flex:0 0 72%;scroll-snap-align:start}}
 #kv{font-size:.92rem}
 #kv tr:last-child td{border-bottom:0}
 #kv td{padding:12px 0;vertical-align:middle;line-height:1.4;text-align:left}
@@ -169,7 +170,7 @@ footer .socials{max-width:272px;margin-left:auto;margin-right:auto}
 .tbd{background:#fff;border:1.5px dashed #cfcfd6}
 .track{display:flex;gap:var(--gap);overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none}
 .track::-webkit-scrollbar{display:none}
-.track figure{margin:0;flex:0 0 calc((100% - 2*var(--gap))/3);scroll-snap-align:start;aspect-ratio:3/4;border-radius:18px;overflow:hidden;background:var(--soft);position:relative;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem}
+.track figure{margin:0;flex:0 0 calc((100% - 2*var(--gap))/3);scroll-snap-align:start;aspect-ratio:1;cursor:zoom-in;border-radius:18px;overflow:hidden;background:var(--soft);position:relative;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.85rem}
 .track img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 @media(max-width:760px){.track figure{flex-basis:62%}}
 .cbar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:20px}
@@ -288,7 +289,8 @@ footer p{margin:0 0 8px}.disc{max-width:58rem;margin:0 auto 12px!important;line-
 <p>In 2005 I founded Dement Clothing by Euphorya, carrying my “Made in Yishun” spirit and “Fight for Passion!” slogan. I design official gear and branding for the Malaysia Yo-Yo Association (MYYA), and my projects include Throw Clothing and the Dement Yo-Yo Cup in Kuala Lumpur. Dement brings together a community of over 100 people across Southeast Asia through yo-yoing, spintop, diabolo, jitter ring, kendama, running, streetwear modelling, action and extreme sports.</p>
 <div class="roles"><span>Player</span><span>Competitor</span><span>Performer</span><span>Judge</span><span>Demonstrator</span><span>Mentor</span><span>Coach</span><span>Product Designer</span><span>Community Builder</span></div>
 <div class="card first"><img src="images/first-yoyo-hyper-russell.webp" alt="Blue Genuine Russell Super Hyper Russell yo-yo by THP Bandai" width="600" height="600" loading="lazy" onerror="this.parentNode.classList.add('noimg');this.remove()"><div><small>First Yo-Yo</small><b>Genuine Russell Super by Hyper Russell</b><span>Hyper Yo-Yo © THP Bandai</span></div></div>
-<div class="moments" id="fmoments"><figure><img src="images/first-contest-1998.webp" alt="Vintage photo from my first yo-yo contest in 1998, with a performer on stage in front of a shopfront" width="1000" height="703" loading="lazy"><figcaption><span>My first yo-yo contest back in 1998, doing “rock the baby”, a very popular yo-yo trick.</span></figcaption></figure><figure><img src="images/cryc2020-medals.webp" alt="Holding four medals in front of the 2020 Central Regional Yo-Yo Contest banner at KL Eco City Mall" width="1000" height="1000" loading="lazy"><figcaption><span>Won 4 medals at CRYC2020 in Malaysia.</span></figcaption></figure><figure><img src="images/myyc2025-medals.webp" alt="Holding two medals in front of the Malaysia Yo-Yo Championship 2025 stage backdrop" width="1000" height="1000" loading="lazy" style="object-position:center 30%"><figcaption><span>2nd Place 4A &amp; 3rd Place 2A Division at Malaysia Yo-Yo Championship 2025.</span></figcaption></figure></div></div>
+<div class="moments wide"><figure><img src="images/first-contest-1998.webp" alt="Vintage photo from my first yo-yo contest in 1998, with a performer on stage in front of a shopfront" width="1000" height="703" loading="lazy"><figcaption><span>My first yo-yo contest back in 1998, doing “rock the baby”, a very popular yo-yo trick.</span></figcaption></figure></div>
+<div class="moments pair"><figure><img src="images/cryc2020-medals.webp" alt="Holding four medals in front of the 2020 Central Regional Yo-Yo Contest banner at KL Eco City Mall" width="1000" height="1000" loading="lazy"><figcaption><span>Won 4 medals at Malaysia Central Regional Yo-Yo Contest 2020</span></figcaption></figure><figure><img src="images/myyc2025-medals.webp" alt="Holding two medals in front of the Malaysia Yo-Yo Championship 2025 stage backdrop" width="1000" height="1000" loading="lazy"><figcaption><span>2nd Place 4A &amp; 3rd Place 2A Division at Malaysia Yo-Yo Championship 2025</span></figcaption></figure></div></div>
 <div class="aside">
 <div class="card"><h3>About Fajar Siddiq</h3><table><tbody id="kv"></tbody></table></div>
 </div>
@@ -454,10 +456,10 @@ const li=r=>`<li><b>${r.y}</b>${r.e}<small>${r.d||"Open"} · ${CN[r.c][1]}</smal
 $("#cols").innerHTML=[["Champion",n1,"c"],["Vice-Champion",n2,""],["Third place",n3,""]].map(([t,a,c])=>`<div class="card col ${c}"><h3>${t}<span>${a.length}</span></h3><ul>${a.map(li).join("")}</ul></div>`).join("");
 
 /* ---------- Gallery carousel ---------- */
-$("#gal").innerHTML=Array.from({length:8},(_,i)=>`<figure>Photo ${i+1}<img src="images/gallery-${i+1}.webp" alt="Fajar Siddiq yo-yo photo ${i+1}" loading="lazy" onerror="this.remove()"></figure>`).join("");
+$("#gal").innerHTML=["Yo-yo player jumping over an off-string yo-yo in front of a black banner","Competition medals, a trainer card and yo-yos laid out beside two Champion T-shirts","Black and white photo of a yo-yo player with two off-string yo-yos in colour"].map((a,i)=>`<figure><img src="images/gallery-${i+1}.webp" alt="${a}" loading="lazy" onerror="this.parentNode.remove()"></figure>`).join("");
 /* ---------- Freestyle video slider ---------- */
 (function(){const B="https://pub-80cf938ac23747d88878235161f9dcd3.r2.dev/fsyoyo/";
- const V=["manja.mp4","2015world-4a-preliminary-32-fajar-siddiq-1080-ytshorts.savetube.me.mp4","DCW%20Profile%20-%20Fajar%20Siddiq.mp4","spingear-shop-offstring-performance-in-tokyo-japan-480-ytshorts.savetube.me.mp4","spingear-shop-offstring-performance-in-tokyo-japan-ytmp4.savetube.vip.mp4","dement-clothing-presents-fajar-siddiq-4a-yo-yo-performance-at-the-wedding-1080-ytshorts.savetube.me.mp4","multi-toys-roadshow-4a-yo-yo-performance-480-ytshorts.savetube.me.mp4","MIYO20214.mp4","comboHK.mp4","osgrind.mp4","sgoffstringcombo.mp4","solohamHK.mp4","solohamsg.mp4"];
+ const V=["manja.mp4?v=2","2015world-4a-preliminary-32-fajar-siddiq-1080-ytshorts.savetube.me.mp4","DCW%20Profile%20-%20Fajar%20Siddiq.mp4","spingear-shop-offstring-performance-in-tokyo-japan-480-ytshorts.savetube.me.mp4","spingear-shop-offstring-performance-in-tokyo-japan-ytmp4.savetube.vip.mp4","dement-clothing-presents-fajar-siddiq-4a-yo-yo-performance-at-the-wedding-1080-ytshorts.savetube.me.mp4","multi-toys-roadshow-4a-yo-yo-performance-480-ytshorts.savetube.me.mp4","MIYO20214.mp4","comboHK.mp4","osgrind.mp4","sgoffstringcombo.mp4","solohamHK.mp4","solohamsg.mp4"];
  const t=$("#vtrack"),dots=$("#vdots"),bs=[...document.querySelectorAll(".vb")];
  t.innerHTML=V.map((f,i)=>`<figure tabindex="0" role="button" aria-label="Play video ${i+1} of ${V.length}" data-src="${B+f}"><img class="vth" alt="" src="images/video-${i+1}.webp" decoding="async"><video muted playsinline preload="none" tabindex="-1" aria-hidden="true"></video><span class="vplay" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M8 5.2v13.6a.6.6 0 0 0 .92.5l10.6-6.8a.6.6 0 0 0 0-1L8.92 4.7A.6.6 0 0 0 8 5.2z"/></svg></span></figure>`).join("");
  /* thumbnails: use images/video-N.webp if present, otherwise grab a frame from the video, only for slides that are on or next to the screen */
@@ -482,7 +484,7 @@ $("#gal").innerHTML=Array.from({length:8},(_,i)=>`<figure>Photo ${i+1}<img src="
   im.addEventListener("error",()=>{im.remove();vd.addEventListener("loadeddata",()=>vd.classList.add("ready"),{once:true});vd.preload="metadata";vd.src=fig.dataset.src+"#t=0.5"})})})();
 
 /* ---------- Video popup player ---------- */
-(function(){const vm=$("#vm"),v=$("#vmv"),st=$("#vms"),pp=$("#vmpp"),r=$("#vmr"),tt=$("#vmt"),dd=$("#vmd"),mu=$("#vmm"),fs=$("#vmf"),xb=$("#vmx");let from=null,idle;
+(function(){const vm=$("#vm"),v=$("#vmv"),st=$("#vms"),pp=$("#vmpp"),r=$("#vmr"),tt=$("#vmt"),dd=$("#vmd"),mu=$("#vmm"),fs=$("#vmf"),xb=$("#vmx");let from=null,idle,origin=null;
  const fmt=x=>{if(!isFinite(x))x=0;return Math.floor(x/60)+":"+String(Math.floor(x%60)).padStart(2,"0")};
  const toggle=()=>{v.paused?v.play().catch(()=>{}):v.pause()};
  function wake(){vm.classList.remove("idle");clearTimeout(idle);if(!v.paused)idle=setTimeout(()=>vm.classList.add("idle"),2600)}
@@ -502,10 +504,10 @@ $("#gal").innerHTML=Array.from({length:8},(_,i)=>`<figure>Photo ${i+1}<img src="
  fs.addEventListener("click",()=>{const d=document;if(d.fullscreenElement||d.webkitFullscreenElement){(d.exitFullscreen||d.webkitExitFullscreen).call(d)}else if(st.requestFullscreen)st.requestFullscreen();else if(st.webkitRequestFullscreen)st.webkitRequestFullscreen();else if(v.webkitEnterFullscreen)v.webkitEnterFullscreen()});
  ["mousemove","touchstart","pointerdown"].forEach(n=>st.addEventListener(n,wake,{passive:true}));
  let figs=[],idx=0;
- function load(i){idx=i;const fig=figs[i];from=fig;const th=fig.querySelector(".vth");v.poster=th&&th.complete&&th.naturalWidth?th.src:"";v.preload="auto";vm.classList.remove("idle","playing");vm.classList.add("loading");v.src=fig.dataset.src;v.currentTime=0;sync();v.play().catch(()=>{});if(fig.parentElement.id=="vtrack")fig.parentElement.scrollTo({left:i*(figs[0].getBoundingClientRect().width+16)})}
+ function load(i){idx=i;const fig=figs[i];from=fig;const th=fig.querySelector(".vth");v.poster=th&&th.complete&&th.naturalWidth?th.src:"";v.preload="auto";vm.classList.remove("idle","playing");vm.classList.add("loading");v.src=fig.dataset.src;v.currentTime=0;sync();v.play().catch(()=>{});if(!origin)fig.parentElement.scrollTo({left:i*(figs[0].getBoundingClientRect().width+16)})}
  const go=d=>{if(figs.length>1)load((idx+d+figs.length)%figs.length)};
- function open(opener){figs=[...opener.parentElement.children];vm.classList.add("open");vm.setAttribute("aria-hidden","false");document.body.classList.add("lbo");load(Math.max(0,figs.indexOf(opener)));xb.focus()}
- function close(){clearTimeout(idle);v.pause();v.removeAttribute("src");v.removeAttribute("poster");v.load();vm.classList.remove("open","playing","idle","loading");vm.setAttribute("aria-hidden","true");document.body.classList.remove("lbo");if(from)from.focus()}
+ function open(opener){figs=[...$("#vtrack").children];origin=opener.parentElement.id=="vgrid"?opener:null;vm.classList.add("open");vm.setAttribute("aria-hidden","false");document.body.classList.add("lbo");load(Math.max(0,figs.findIndex(f=>f.dataset.src==opener.dataset.src)));xb.focus()}
+ function close(){clearTimeout(idle);v.pause();v.removeAttribute("src");v.removeAttribute("poster");v.load();vm.classList.remove("open","playing","idle","loading");vm.setAttribute("aria-hidden","true");document.body.classList.remove("lbo");const bk=origin||from;if(bk)bk.focus()}
  xb.addEventListener("click",close);$("#vmp").addEventListener("click",()=>{go(-1);wake()});$("#vmn").addEventListener("click",()=>{go(1);wake()});vm.addEventListener("click",e=>{if(e.target==vm)close()});
  [$("#vtrack"),$("#vgrid")].forEach(tr=>{
  tr.addEventListener("click",e=>{const f=e.target.closest("figure");if(f)open(f)});
@@ -531,7 +533,7 @@ $("#gal").innerHTML=Array.from({length:8},(_,i)=>`<figure>Photo ${i+1}<img src="
  function open(l,k,from){list=l;i=k;back=from;lb.classList.toggle("one",l.length<2);show();lb.classList.add("open");lb.setAttribute("aria-hidden","false");document.body.classList.add("lbo");lb.querySelector(".x").focus()}
  function close(){lb.classList.remove("open");lb.setAttribute("aria-hidden","true");document.body.classList.remove("lbo");im.removeAttribute("src");if(back)back.focus()}
  const go=d=>{if(list.length>1){i=(i+d+list.length)%list.length;show()}};
- ["#ytrack","#ttrack","#strack","#fmoments"].forEach(sel=>{const figs=[...document.querySelectorAll(sel+" figure")];
+ ["#ytrack","#ttrack","#strack",".moments","#gal"].forEach(sel=>{const figs=[...document.querySelectorAll(sel+" figure")];
  figs.forEach((f,k)=>{f.tabIndex=0;f.setAttribute("role","button");f.setAttribute("aria-label","Enlarge "+(f.querySelector("b")?f.querySelector("b").textContent:"photo "+(k+1)));
   const run=()=>open(figs.map(info),k,f);f.addEventListener("click",run);f.addEventListener("keydown",e=>{if(e.key=="Enter"||e.key==" "){e.preventDefault();run()}})})});
  const fc=document.querySelector(".first");
