@@ -189,6 +189,7 @@ footer .socials{max-width:272px;margin-left:auto;margin-right:auto}
 .vtrack figure:hover .vplay{transform:scale(1.07)}
 .vtrack .vplay svg{margin-left:3px}
 .vlat{font-size:clamp(1.05rem,2.4vw,1.25rem);font-weight:700;letter-spacing:-.02em;margin:clamp(28px,5vw,44px) 0 0}
+.vhead .vlat{margin:0}.vhead p{margin:4px 0 0;font-size:.9rem;line-height:1.45;color:var(--muted)}.vhead{margin-bottom:var(--gap)}
 .vgrid{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;scroll-snap-type:none;margin-top:var(--gap)}
 .vgrid figure{flex:none}
 .vgrid .vplay{transform:scale(.7)}.vgrid figure:hover .vplay{transform:scale(.78)}
@@ -307,6 +308,7 @@ footer p{margin:0 0 8px}.disc{max-width:58rem;margin:0 auto 12px!important;line-
 <div class="track" id="gal"></div>
 <div class="cbar"><button class="cb" data-d="-1" aria-label="Previous" disabled>←</button><div class="dots" id="dots" role="group" aria-label="Slide pages"></div><button class="cb" data-d="1" aria-label="Next">→</button></div>
 <div class="vsec">
+<div class="vhead"><h3 class="vlat">Featured Videos</h3><p>Competition runs, freestyle sessions and live performances.</p></div>
 <div class="vtrack" id="vtrack" tabindex="0" role="region" aria-label="Freestyle video slider"></div>
 <div class="ybar"><button class="vb" data-d="-1" aria-label="Previous video" disabled>←</button><div class="ydots" id="vdots" role="group" aria-label="Choose video"></div><button class="vb" data-d="1" aria-label="Next video">→</button></div>
 <h3 class="vlat">Latest videos</h3>
@@ -459,7 +461,7 @@ $("#cols").innerHTML=[["Champion",n1,"c"],["Vice-Champion",n2,""],["Third place"
 $("#gal").innerHTML=["Yo-yo player jumping over an off-string yo-yo in front of a black banner","Competition medals, a trainer card and yo-yos laid out beside two Champion T-shirts","Black and white photo of a yo-yo player with two off-string yo-yos in colour"].map((a,i)=>`<figure><img src="images/gallery-${i+1}.webp" alt="${a}" loading="lazy" onerror="this.parentNode.remove()"></figure>`).join("");
 /* ---------- Freestyle video slider ---------- */
 (function(){const B="https://pub-80cf938ac23747d88878235161f9dcd3.r2.dev/fsyoyo/";
- const V=["manja.mp4?v=2","2015world-4a-preliminary-32-fajar-siddiq-1080-ytshorts.savetube.me.mp4","DCW%20Profile%20-%20Fajar%20Siddiq.mp4","spingear-shop-offstring-performance-in-tokyo-japan-480-ytshorts.savetube.me.mp4","spingear-shop-offstring-performance-in-tokyo-japan-ytmp4.savetube.vip.mp4","dement-clothing-presents-fajar-siddiq-4a-yo-yo-performance-at-the-wedding-1080-ytshorts.savetube.me.mp4","multi-toys-roadshow-4a-yo-yo-performance-480-ytshorts.savetube.me.mp4","MIYO20214.mp4","comboHK.mp4","osgrind.mp4","sgoffstringcombo.mp4","solohamHK.mp4","solohamsg.mp4"];
+ const V=["manja.mp4?v=2","2015world-4a-preliminary-32-fajar-siddiq-1080-ytshorts.savetube.me.mp4","DCW%20Profile%20-%20Fajar%20Siddiq.mp4","spingear-shop-offstring-performance-in-tokyo-japan-480-ytshorts.savetube.me.mp4","fajar-siddiq-at-spingear-tokyo-japan-1080-ytshorts.savetube.me.mp4","dement-clothing-presents-fajar-siddiq-4a-yo-yo-performance-at-the-wedding-1080-ytshorts.savetube.me.mp4","multi-toys-roadshow-4a-yo-yo-performance-480-ytshorts.savetube.me.mp4","MIYO20214.mp4","comboHK.mp4","osgrind.mp4","sgoffstringcombo.mp4","solohamHK.mp4","solohamsg.mp4"];
  const t=$("#vtrack"),dots=$("#vdots"),bs=[...document.querySelectorAll(".vb")];
  t.innerHTML=V.map((f,i)=>`<figure tabindex="0" role="button" aria-label="Play video ${i+1} of ${V.length}" data-src="${B+f}"><img class="vth" alt="" src="images/video-${i+1}.webp" decoding="async"><video muted playsinline preload="none" tabindex="-1" aria-hidden="true"></video><span class="vplay" aria-hidden="true"><svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M8 5.2v13.6a.6.6 0 0 0 .92.5l10.6-6.8a.6.6 0 0 0 0-1L8.92 4.7A.6.6 0 0 0 8 5.2z"/></svg></span></figure>`).join("");
  /* thumbnails: use images/video-N.webp if present, otherwise grab a frame from the video, only for slides that are on or next to the screen */
