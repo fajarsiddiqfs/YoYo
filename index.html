@@ -151,7 +151,7 @@ footer .socials{max-width:272px;margin-left:auto;margin-right:auto}
 #kv tr:last-child td{border-bottom:0}
 #kv td{padding:12px 0;vertical-align:middle;line-height:1.4;text-align:left}
 #kv td:first-child{padding-right:16px}
-#kv td small{display:block;margin-top:2px;font-size:.78rem;color:var(--muted)}
+#kv td small{display:block;margin-top:2px;font-size:.78rem;color:var(--muted)}#kv td a{color:inherit;text-decoration:underline dotted;text-decoration-thickness:1px;text-underline-offset:3px}#kv td a:hover,#kv td a:focus-visible{text-decoration-style:solid}
 #kv td:last-child{white-space:nowrap;text-align:right;padding-left:8px}
 /* podiums */
 .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);align-items:start}
@@ -419,7 +419,7 @@ $("#stats").innerHTML=[[n1.length,"Champion","k"],[n2.length,"Vice-Champion",""]
   (function f(now){const p=Math.min(1,(now-st)/dur);el.textContent=Math.round(t*(1-Math.pow(1-p,3)))+"×";if(p<1)requestAnimationFrame(f)})(st)}),{threshold:.4});
  els.forEach(e=>io.observe(e))})();
 $("#hl-lead").textContent=`${pod.length} podiums from ${D.length} recorded results, ${first} to ${last}.`;
-$("#kv").innerHTML=[["Started Yo-Yoing","1998"],["Years competing","27 Years"],["2002 to 2014","Duncan"],["2015 to Current","Dement"],["Owner &amp; Founder","Euphorya"],["2003 Asia Pacific Yo-Yo Championships<small>X Div</small>","2nd"],["2008 Malaysia Best Yo-Yo Trick Contest<small>4A Div</small>","1st"],["2013 Singapore West Coast Classics Regionals<small>4A Div</small>","1st"],["2015 World Yo-Yo Contest<small>4A Div</small>","32nd · Prelims"],["2020 Malaysia Central Regional Yo-Yo Contest<small>5A Div</small>","1st"],["Vice-Champion",n2.length+"x"],["Longest Sleeper","9min 44secs"]].map(a=>`<tr><td>${a[0]}</td><td><b>${a[1]}</b></td></tr>`).join("");
+$("#kv").innerHTML=[["Started Yo-Yoing","1998"],["Years competing","27 Years"],["2002 to 2014","Duncan"],["2015 to Current","Dement"],["Owner &amp; Founder","Euphorya"],["<a href=\"https://www.youtube.com/watch?v=TxBJSJCXBD0\" target=\"_blank\" rel=\"noopener\">2003 Asia Pacific Yo-Yo Championships</a><small>X Division</small>","2nd"],["<a href=\"https://www.youtube.com/watch?v=QLI03ShuUn4\" target=\"_blank\" rel=\"noopener\">2008 Central Yo-Yo Championships</a><small>4A Division - Best Trick Contest</small>","1st"],["<a href=\"https://youtu.be/OshS3_8_F-A\" target=\"_blank\" rel=\"noopener\">2013 Singapore West Coast Classics Regionals</a><small>4A Division</small>","1st"],["<a href=\"https://www.youtube.com/watch?v=4XL5cgmxDNw\" target=\"_blank\" rel=\"noopener\">2015 World Yo-Yo Contest</a><small>4A Division</small>","32nd · Prelims"],["<a href=\"https://www.youtube.com/watch?v=K6oaRiqXJrQ\" target=\"_blank\" rel=\"noopener\">2020 Malaysia Central Regional Yo-Yo Contest</a><small>5A Division</small>","1st"],["Vice-Champion",n2.length+"x"],["Longest Sleeper","9min 44secs"]].map(a=>`<tr><td>${a[0]}</td><td><b>${a[1]}</b></td></tr>`).join("");
 
 /* ---------- Chart + region table ---------- */
 const span=[];for(let y=first;y<=last;y++)span.push(y);
