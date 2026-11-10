@@ -117,6 +117,7 @@ footer .socials{max-width:272px;margin-left:auto;margin-right:auto}
 .ytrack figcaption{position:absolute;left:0;right:0;bottom:0;padding:clamp(16px,3vw,22px);display:flex;flex-direction:column;gap:3px}
 .ytrack figcaption b{font-size:clamp(1.05rem,4vw,1.25rem);line-height:1.2;letter-spacing:-.02em}
 .ytrack figcaption span{font-size:.85rem;color:rgba(255,255,255,.82)}
+.ptrack figure{aspect-ratio:4/3}.ptrack figure::after{display:none}
 .ybar{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:22px}
 .ydots button{flex:none;display:flex;justify-content:center;width:20px;height:30px;border:0;padding:11px 0;background:none;cursor:pointer;transition:width .2s}
 .ydots button::before{content:"";width:8px;height:8px;border-radius:99px;background:#cfcfd4;transition:width .2s,background-color .2s}
@@ -140,6 +141,11 @@ footer .socials{max-width:272px;margin-left:auto;margin-right:auto}
 .first small{display:block;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.78)}
 .first b{display:block;font-size:clamp(1.2rem,4.5vw,1.6rem);line-height:1.2;letter-spacing:-.02em}
 .first span{display:block;font-size:.9rem;color:rgba(255,255,255,.82)}
+.moments{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);margin-top:var(--gap)}
+.moments figure{margin:0;cursor:zoom-in;min-width:0}
+.moments img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;background:var(--soft)}
+.moments figcaption{margin-top:8px;font-size:.8rem;line-height:1.4;color:var(--muted)}
+@media(max-width:560px){.moments{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}.moments figure{flex:0 0 72%;scroll-snap-align:start}}
 #kv{font-size:.92rem}
 #kv tr:last-child td{border-bottom:0}
 #kv td{padding:12px 0;vertical-align:middle;line-height:1.4;text-align:left}
@@ -181,6 +187,11 @@ footer .socials{max-width:272px;margin-left:auto;margin-right:auto}
 .vtrack .vplay{position:absolute;left:50%;top:50%;width:clamp(56px,9vw,84px);height:clamp(56px,9vw,84px);margin:calc(clamp(56px,9vw,84px)/-2) 0 0 calc(clamp(56px,9vw,84px)/-2);border-radius:50%;background:rgba(255,255,255,.92);color:#111;display:grid;place-items:center;box-shadow:0 6px 24px rgba(0,0,0,.28);transition:transform .2s}
 .vtrack figure:hover .vplay{transform:scale(1.07)}
 .vtrack .vplay svg{margin-left:3px}
+.vlat{font-size:clamp(1.05rem,2.4vw,1.25rem);font-weight:700;letter-spacing:-.02em;margin:clamp(28px,5vw,44px) 0 0}
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;scroll-snap-type:none;margin-top:var(--gap)}
+.vgrid figure{flex:none}
+.vgrid .vplay{transform:scale(.7)}.vgrid figure:hover .vplay{transform:scale(.78)}
+@media(max-width:700px){.vgrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth}.vgrid figure{flex:0 0 78%;scroll-snap-align:start}}
 .vb{width:44px;height:44px;border-radius:50%;border:0;background:var(--soft);color:var(--fg);font-size:18px;cursor:pointer;display:grid;place-items:center;flex:none}.vb[disabled]{opacity:.35;cursor:default}
 /* lightbox */
 .lb{position:fixed;inset:0;z-index:100;display:none;align-items:center;justify-content:center;background:rgba(8,10,18,.88);padding:max(20px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(20px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
@@ -276,7 +287,8 @@ footer p{margin:0 0 8px}.disc{max-width:58rem;margin:0 auto 12px!important;line-
 <p>I placed 2nd in the X-Division (Offstring) at the 2003 Asia Pacific Yo-Yo Championships and 32nd in the 4A Division preliminaries at the 2015 World Yo-Yo Contest. I’m a pioneer of Singapore’s off-string 4A and freehand 5A divisions, and I continue to mentor players, judge competitions and perform.</p>
 <p>In 2005 I founded Dement Clothing by Euphorya, carrying my “Made in Yishun” spirit and “Fight for Passion!” slogan. I design official gear and branding for the Malaysia Yo-Yo Association (MYYA), and my projects include Throw Clothing and the Dement Yo-Yo Cup in Kuala Lumpur. Dement brings together a community of over 100 people across Southeast Asia through yo-yoing, spintop, diabolo, jitter ring, kendama, running, streetwear modelling, action and extreme sports.</p>
 <div class="roles"><span>Player</span><span>Competitor</span><span>Performer</span><span>Judge</span><span>Demonstrator</span><span>Mentor</span><span>Coach</span><span>Product Designer</span><span>Community Builder</span></div>
-<div class="card first"><img src="images/first-yoyo-hyper-russell.webp" alt="Blue Genuine Russell Super Hyper Russell yo-yo by THP Bandai" width="600" height="600" loading="lazy" onerror="this.parentNode.classList.add('noimg');this.remove()"><div><small>First Yo-Yo</small><b>Genuine Russell Super by Hyper Russell</b><span>Hyper Yo-Yo © THP Bandai</span></div></div></div>
+<div class="card first"><img src="images/first-yoyo-hyper-russell.webp" alt="Blue Genuine Russell Super Hyper Russell yo-yo by THP Bandai" width="600" height="600" loading="lazy" onerror="this.parentNode.classList.add('noimg');this.remove()"><div><small>First Yo-Yo</small><b>Genuine Russell Super by Hyper Russell</b><span>Hyper Yo-Yo © THP Bandai</span></div></div>
+<div class="moments" id="fmoments"><figure><img src="images/first-contest-1998.webp" alt="Vintage photo from my first yo-yo contest in 1998, with a performer on stage in front of a shopfront" width="1000" height="703" loading="lazy"><figcaption><span>My first yo-yo contest back in 1998, doing “rock the baby”, a very popular yo-yo trick.</span></figcaption></figure><figure><img src="images/cryc2020-medals.webp" alt="Holding four medals in front of the 2020 Central Regional Yo-Yo Contest banner at KL Eco City Mall" width="1000" height="1000" loading="lazy"><figcaption><span>Won 4 medals at CRYC2020 in Malaysia.</span></figcaption></figure><figure><img src="images/myyc2025-medals.webp" alt="Holding two medals in front of the Malaysia Yo-Yo Championship 2025 stage backdrop" width="1000" height="1000" loading="lazy" style="object-position:center 30%"><figcaption><span>2nd Place 4A &amp; 3rd Place 2A Division at Malaysia Yo-Yo Championship 2025.</span></figcaption></figure></div></div>
 <div class="aside">
 <div class="card"><h3>About Fajar Siddiq</h3><table><tbody id="kv"></tbody></table></div>
 </div>
@@ -289,18 +301,26 @@ footer p{margin:0 0 8px}.disc{max-width:58rem;margin:0 auto 12px!important;line-
 </section>
 
 <section class="wrap" id="gallery">
-<h2 class="big">Videos <span class="g">&amp; Gallery</span><small>Drop photos into the images/ folder named gallery-1.webp to gallery-8.webp and they appear here.</small></h2>
+<h2 class="big">Videos <span class="g">&amp; Gallery</span><small>Performances, freestyle clips and moments from competitions, workshops and events.</small></h2>
 <div class="track" id="gal"></div>
 <div class="cbar"><button class="cb" data-d="-1" aria-label="Previous" disabled>←</button><div class="dots" id="dots" role="group" aria-label="Slide pages"></div><button class="cb" data-d="1" aria-label="Next">→</button></div>
 <div class="vsec">
 <div class="vtrack" id="vtrack" tabindex="0" role="region" aria-label="Freestyle video slider"></div>
-<div class="ybar"><button class="vb" data-d="-1" aria-label="Previous video" disabled>←</button><div class="ydots" id="vdots" role="group" aria-label="Choose video"></div><button class="vb" data-d="1" aria-label="Next video">→</button></div></div>
+<div class="ybar"><button class="vb" data-d="-1" aria-label="Previous video" disabled>←</button><div class="ydots" id="vdots" role="group" aria-label="Choose video"></div><button class="vb" data-d="1" aria-label="Next video">→</button></div>
+<h3 class="vlat">Latest videos</h3>
+<div class="vtrack vgrid" id="vgrid" role="region" aria-label="Latest videos"></div></div>
 </section>
 
 <section class="wrap" id="today">
 <h2 class="big">Today <span class="g">Yo-Yos</span><small>Some of the yo-yos I played with it currently.</small></h2>
 <div class="ytrack" id="ttrack" tabindex="0" role="region" aria-label="Today yo-yos photo slider"><figure><img src="images/today-1-another-eagle.webp" alt="Clear Another Eagle yo-yo by Japan Technology, angled view" width="600" height="600" loading="lazy"><figcaption><b>Another Eagle</b><span>Japan Technology</span></figcaption></figure><figure><img src="images/today-2-another-eagle.webp" alt="Clear Another Eagle yo-yo by Japan Technology, top view" width="600" height="600" loading="lazy"><figcaption><b>Another Eagle</b><span>Japan Technology</span></figcaption></figure><figure><img src="images/today-3-another-eagle.webp" alt="Clear Another Eagle yo-yo by Japan Technology, side view" width="600" height="600" loading="lazy"><figcaption><b>Another Eagle</b><span>Japan Technology</span></figcaption></figure><figure><img src="images/today-4-jet-set.webp" alt="White Jet-Set yo-yo with a pink cap by sOMEThING x Japan Technology" width="600" height="600" loading="lazy"><figcaption><b>Jet-Set</b><span>sOMEThING x Japan Technology</span></figcaption></figure><figure><img src="images/today-5-jet-set.webp" alt="Blue Jet-Set yo-yo with a silver cap by sOMEThING x Japan Technology" width="600" height="600" loading="lazy"><figcaption><b>Jet-Set</b><span>sOMEThING x Japan Technology</span></figcaption></figure><figure><img src="images/07-hornet.webp" alt="Duncan Hornet yo-yo in white with a lime green rim" width="600" height="600" loading="lazy"><figcaption><b>Hornet</b><span>Duncan</span></figcaption></figure></div>
 <div class="ybar"><button class="yb" data-d="-1" aria-label="Previous yo-yo" disabled>←</button><div class="ydots" id="tdots" role="group" aria-label="Choose yo-yo"></div><button class="yb" data-d="1" aria-label="Next yo-yo">→</button></div>
+</section>
+
+<section class="wrap" id="sponsorship">
+<h2 class="big">Sponsorship <span class="g">Archives</span><small>Duncan Toys, USA — Sponsorship Year: 2002–2014</small></h2>
+<div class="ytrack ptrack" id="strack" tabindex="0" role="region" aria-label="Sponsorship archives photo slider"><figure><img src="images/sponsorship-1.webp" alt="Duncan Crew professional demonstrator cards of Fajar Siddiq stacked beside Duncan yo-yos and packaging" width="720" height="540" loading="lazy"></figure><figure><img src="images/sponsorship-2.webp" alt="Shipping box label reading Duncan Crew Kit, 10 per pack" width="720" height="540" loading="lazy"></figure><figure><img src="images/sponsorship-3.webp" alt="Stacks of Duncan Crew professional demonstrator trading cards featuring Fajar Siddiq" width="720" height="540" loading="lazy"></figure><figure><img src="images/sponsorship-4.webp" alt="Blue, black and silver Duncan yo-yos including the Raptor and Freebird" width="720" height="540" loading="lazy"></figure><figure><img src="images/sponsorship-5.webp" alt="Side view of five Duncan yo-yos in blue, black, teal and silver" width="720" height="540" loading="lazy"></figure><figure><img src="images/sponsorship-6.webp" alt="Five Duncan yo-yos placed on the 80 Years 1 World tour DVD" width="540" height="720" loading="lazy"></figure><figure><img src="images/sponsorship-7.webp" alt="Duncan Crew kit with a T-shirt, yo-yos, strings, stickers, trading cards and DVD" width="720" height="540" loading="lazy"></figure><figure><img src="images/sponsorship-8.webp" alt="Bundle of Duncan professional demonstrator trading cards held with a rubber band" width="720" height="540" loading="lazy"></figure><figure><img src="images/sponsorship-9.webp" alt="Row of blue Duncan yo-yos beside friction stickers and Duncan Crew Worldwide caps" width="720" height="540" loading="lazy"></figure><figure><img src="images/sponsorship-10.webp" alt="Duncan Woodbullet, Windorbit and Metal Drifter yo-yos in their packaging" width="668" height="501" loading="lazy"></figure><figure><img src="images/sponsorship-11.webp" alt="Black Duncan Crew Worldwide T-shirt with the Duncan logo" width="668" height="501" loading="lazy"></figure><figure><img src="images/sponsorship-12.webp" alt="Full Duncan Crew sponsorship kit laid out on a tiled floor" width="540" height="720" loading="lazy"></figure><figure><img src="images/sponsorship-13.webp" alt="Duncan 80 Years 1 World tour DVD cover, starring Duncan Crew Worldwide" width="720" height="540" loading="lazy"></figure><figure><img src="images/sponsorship-14.webp" alt="Close-up of Fajar Siddiq's Duncan professional demonstrator card" width="720" height="540" loading="lazy"></figure><figure><img src="images/sponsorship-15.webp" alt="Duncan yo-yos, green strings and demonstrator cards on a table" width="668" height="501" loading="lazy"></figure></div>
+<div class="ybar"><button class="yb" data-d="-1" aria-label="Previous photo" disabled>←</button><div class="ydots" id="sdots" role="group" aria-label="Choose photo"></div><button class="yb" data-d="1" aria-label="Next photo">→</button></div>
 </section>
 
 <section class="wrap" id="highlights">
@@ -453,7 +473,13 @@ $("#gal").innerHTML=Array.from({length:8},(_,i)=>`<figure>Photo ${i+1}<img src="
   bs[0].disabled=i<=0;bs[1].disabled=i>=V.length-1}
  bs.forEach(b=>b.addEventListener("click",()=>t.scrollBy({left:b.dataset.d*step()})));
  dots.addEventListener("click",e=>{const b=e.target.closest("button");if(b)t.scrollTo({left:b.dataset.i*step()})});
- t.addEventListener("scroll",upd,{passive:true});addEventListener("resize",upd);upd()})();
+ t.addEventListener("scroll",upd,{passive:true});addEventListener("resize",upd);upd();
+ /* latest videos: 3 cards under the slider. Edit this list to change them. */
+ const L=["spingear-shop-offstring-performance-in-tokyo-japan-480-ytshorts.savetube.me.mp4","dement-clothing-presents-fajar-siddiq-4a-yo-yo-performance-at-the-wedding-1080-ytshorts.savetube.me.mp4","multi-toys-roadshow-4a-yo-yo-performance-480-ytshorts.savetube.me.mp4"];
+ const g=$("#vgrid"),PL='<svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M8 5.2v13.6a.6.6 0 0 0 .92.5l10.6-6.8a.6.6 0 0 0 0-1L8.92 4.7A.6.6 0 0 0 8 5.2z"/></svg>';
+ g.innerHTML=L.map((f,i)=>`<figure tabindex="0" role="button" aria-label="Play latest video ${i+1} of ${L.length}" data-src="${B+f}"><img class="vth" alt="" src="images/video-${V.indexOf(f)+1}.webp" decoding="async"><video muted playsinline preload="none" tabindex="-1" aria-hidden="true"></video><span class="vplay" aria-hidden="true">${PL}</span></figure>`).join("");
+ [...g.children].forEach(fig=>{const im=fig.querySelector(".vth"),vd=fig.querySelector("video");
+  im.addEventListener("error",()=>{im.remove();vd.addEventListener("loadeddata",()=>vd.classList.add("ready"),{once:true});vd.preload="metadata";vd.src=fig.dataset.src+"#t=0.5"})})})();
 
 /* ---------- Video popup player ---------- */
 (function(){const vm=$("#vm"),v=$("#vmv"),st=$("#vms"),pp=$("#vmpp"),r=$("#vmr"),tt=$("#vmt"),dd=$("#vmd"),mu=$("#vmm"),fs=$("#vmf"),xb=$("#vmx");let from=null,idle;
@@ -476,14 +502,14 @@ $("#gal").innerHTML=Array.from({length:8},(_,i)=>`<figure>Photo ${i+1}<img src="
  fs.addEventListener("click",()=>{const d=document;if(d.fullscreenElement||d.webkitFullscreenElement){(d.exitFullscreen||d.webkitExitFullscreen).call(d)}else if(st.requestFullscreen)st.requestFullscreen();else if(st.webkitRequestFullscreen)st.webkitRequestFullscreen();else if(v.webkitEnterFullscreen)v.webkitEnterFullscreen()});
  ["mousemove","touchstart","pointerdown"].forEach(n=>st.addEventListener(n,wake,{passive:true}));
  let figs=[],idx=0;
- function load(i){idx=i;const fig=figs[i];from=fig;const th=fig.querySelector(".vth");v.poster=th&&th.complete&&th.naturalWidth?th.src:"";v.preload="auto";vm.classList.remove("idle","playing");vm.classList.add("loading");v.src=fig.dataset.src;v.currentTime=0;sync();v.play().catch(()=>{});$("#vtrack").scrollTo({left:i*(figs[0].getBoundingClientRect().width+16)})}
+ function load(i){idx=i;const fig=figs[i];from=fig;const th=fig.querySelector(".vth");v.poster=th&&th.complete&&th.naturalWidth?th.src:"";v.preload="auto";vm.classList.remove("idle","playing");vm.classList.add("loading");v.src=fig.dataset.src;v.currentTime=0;sync();v.play().catch(()=>{});if(fig.parentElement.id=="vtrack")fig.parentElement.scrollTo({left:i*(figs[0].getBoundingClientRect().width+16)})}
  const go=d=>{if(figs.length>1)load((idx+d+figs.length)%figs.length)};
- function open(opener){figs=[...$("#vtrack").children];vm.classList.add("open");vm.setAttribute("aria-hidden","false");document.body.classList.add("lbo");load(Math.max(0,figs.indexOf(opener)));xb.focus()}
+ function open(opener){figs=[...opener.parentElement.children];vm.classList.add("open");vm.setAttribute("aria-hidden","false");document.body.classList.add("lbo");load(Math.max(0,figs.indexOf(opener)));xb.focus()}
  function close(){clearTimeout(idle);v.pause();v.removeAttribute("src");v.removeAttribute("poster");v.load();vm.classList.remove("open","playing","idle","loading");vm.setAttribute("aria-hidden","true");document.body.classList.remove("lbo");if(from)from.focus()}
  xb.addEventListener("click",close);$("#vmp").addEventListener("click",()=>{go(-1);wake()});$("#vmn").addEventListener("click",()=>{go(1);wake()});vm.addEventListener("click",e=>{if(e.target==vm)close()});
- const tr=$("#vtrack");
+ [$("#vtrack"),$("#vgrid")].forEach(tr=>{
  tr.addEventListener("click",e=>{const f=e.target.closest("figure");if(f)open(f)});
- tr.addEventListener("keydown",e=>{const f=e.target.closest("figure");if(f&&(e.key=="Enter"||e.key==" ")){e.preventDefault();open(f)}});
+ tr.addEventListener("keydown",e=>{const f=e.target.closest("figure");if(f&&(e.key=="Enter"||e.key==" ")){e.preventDefault();open(f)}})});
  addEventListener("keydown",e=>{if(!vm.classList.contains("open"))return;const tag=e.target.tagName;
   if(e.key=="Escape")close();
   else if(e.key==" "&&tag!="BUTTON"&&tag!="INPUT"&&tag!="A"){e.preventDefault();toggle();wake()}
@@ -500,13 +526,13 @@ $("#gal").innerHTML=Array.from({length:8},(_,i)=>`<figure>Photo ${i+1}<img src="
 
 /* ---------- Photo lightbox (Early Yo-Yos + First Yo-Yo) ---------- */
 (function(){const lb=$("#lb"),im=$("#lbi"),cp=$("#lbc");let list=[],i=0,back=null;
- const info=f=>{const c=f.querySelector("figcaption")||f.querySelector("div");const b=c.querySelector("b"),sp=c.querySelector("span");return{src:f.querySelector("img").src,alt:f.querySelector("img").alt,t:b?b.textContent:"",s:sp?sp.textContent:""}};
+ const info=f=>{const c=f.querySelector("figcaption")||f.querySelector("div");const b=c&&c.querySelector("b"),sp=c&&c.querySelector("span");return{src:f.querySelector("img").src,alt:f.querySelector("img").alt,t:b?b.textContent:"",s:sp?sp.textContent:""}};
  function show(){const o=list[i];im.src=o.src;im.alt=o.alt;cp.innerHTML="<b></b><span></span>";cp.firstChild.textContent=o.t;cp.lastChild.textContent=o.s}
  function open(l,k,from){list=l;i=k;back=from;lb.classList.toggle("one",l.length<2);show();lb.classList.add("open");lb.setAttribute("aria-hidden","false");document.body.classList.add("lbo");lb.querySelector(".x").focus()}
  function close(){lb.classList.remove("open");lb.setAttribute("aria-hidden","true");document.body.classList.remove("lbo");im.removeAttribute("src");if(back)back.focus()}
  const go=d=>{if(list.length>1){i=(i+d+list.length)%list.length;show()}};
- ["#ytrack","#ttrack"].forEach(sel=>{const figs=[...document.querySelectorAll(sel+" figure")];
- figs.forEach((f,k)=>{f.tabIndex=0;f.setAttribute("role","button");f.setAttribute("aria-label","Enlarge "+f.querySelector("b").textContent);
+ ["#ytrack","#ttrack","#strack","#fmoments"].forEach(sel=>{const figs=[...document.querySelectorAll(sel+" figure")];
+ figs.forEach((f,k)=>{f.tabIndex=0;f.setAttribute("role","button");f.setAttribute("aria-label","Enlarge "+(f.querySelector("b")?f.querySelector("b").textContent:"photo "+(k+1)));
   const run=()=>open(figs.map(info),k,f);f.addEventListener("click",run);f.addEventListener("keydown",e=>{if(e.key=="Enter"||e.key==" "){e.preventDefault();run()}})})});
  const fc=document.querySelector(".first");
  if(fc){fc.tabIndex=0;fc.setAttribute("role","button");fc.setAttribute("aria-label","Enlarge first yo-yo photo");
@@ -520,10 +546,10 @@ $("#yr").textContent=new Date().getFullYear();
 const links=[...document.querySelectorAll("#menu a")];
 const so=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>{const on=a.hash=="#"+e.target.id;a.classList.toggle("on",on);if(on){const L=$("#menu");L.scrollTo({left:a.offsetLeft-L.clientWidth/2+a.offsetWidth/2,behavior:"smooth"})}})}),{rootMargin:"-45% 0px -50% 0px"});
 links.forEach(a=>{const s=document.querySelector(a.hash);if(s)so.observe(s)});
-["ytrack:ydots","ttrack:tdots"].forEach(pair=>{const [tid,did]=pair.split(":"),t=$("#"+tid),dots=$("#"+did),bs=[...t.closest("section").querySelectorAll(".yb")];let np=0;
+["ytrack:ydots","ttrack:tdots","strack:sdots"].forEach(pair=>{const [tid,did]=pair.split(":"),t=$("#"+tid),dots=$("#"+did),bs=[...t.closest("section").querySelectorAll(".yb")];let np=0;
  const step=()=>t.children[0].getBoundingClientRect().width+16,max=()=>t.scrollWidth-t.clientWidth;
  function build(){const n=Math.max(1,Math.ceil((max()-4)/step())+1);if(n==np)return;np=n;
-  dots.innerHTML=Array.from({length:n},(_,k)=>`<button aria-label="Go to yo-yo ${k+1}" data-i="${k}"></button>`).join("")}
+  dots.innerHTML=Array.from({length:n},(_,k)=>`<button aria-label="Go to ${tid=='strack'?'photo':'yo-yo'} ${k+1}" data-i="${k}"></button>`).join("")}
  function upd(){build();const m=max(),i=t.scrollLeft>=m-4?np-1:Math.min(np-1,Math.round(t.scrollLeft/step()));
   [...dots.children].forEach((d,k)=>{d.classList.toggle("on",k==i);d.setAttribute("aria-current",k==i)});
   bs[0].disabled=t.scrollLeft<4;bs[1].disabled=t.scrollLeft>=m-4}
