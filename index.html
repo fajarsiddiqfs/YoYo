@@ -69,6 +69,7 @@ h2.big small{display:block;font-size:.85rem;font-weight:400;letter-spacing:0;col
 .b-myya img{height:calc(var(--lh)*1.2)}
 .b-apyoyo img{height:calc(var(--lh)*1.1)}
 .b-44clash img{height:calc(var(--lh)*1.1)}
+.b-hereweyo img{height:calc(var(--lh)*1.1)}
 .stat.k{background:linear-gradient(145deg,#fff,#e7e7ec);border:1.5px solid #d4d4da}
 /* about */
 .about-grid{display:grid;grid-template-columns:1.45fr 1fr;gap:clamp(20px,3.5vw,44px);align-items:start}
@@ -331,6 +332,7 @@ footer p{margin:0 0 8px}.disc{max-width:58rem;margin:0 auto 12px!important;line-
 <a class="b-44clash" href="https://www.44clash.com/international_players.html" target="_blank" rel="noopener" aria-label="44 Clash"><img src="images/44clash.webp" alt="44 Clash" width="357" height="255"></a>
 <a class="b-apyoyo" href="https://www.youtube.com/watch?v=B23LoTfgE3A&amp;t=35s" target="_blank" rel="noopener" aria-label="APYOYO"><img src="images/apyoyo.webp" alt="APYOYO" width="598" height="600"></a>
 <a class="b-spinworkx" href="https://www.instagram.com/p/BJpacYQBIHM/" target="_blank" rel="noopener" aria-label="Spinworkx"><img src="images/spinworkx.webp" alt="Spinworkx" width="440" height="113"></a>
+<a class="b-hereweyo" href="https://www.facebook.com/photo?fbid=102713160346&amp;set=a.102712910346" target="_blank" rel="noopener" aria-label="Here We Yo!"><img src="images/hereweyo.webp" alt="Here We Yo!" width="400" height="400"></a>
 </div>
 </div></header>
 
@@ -396,9 +398,10 @@ footer p{margin:0 0 8px}.disc{max-width:58rem;margin:0 auto 12px!important;line-
 </div></section>
 
 <section class="wrap" id="competitions">
-<h2 class="big">Competition <span class="g">History</span><small>Every recorded result, newest first. Search or filter by result and country.</small></h2>
+<h2 class="big">Competition <span class="g">History</span><small>Every recorded result, newest first. Search or filter by result and country, or switch to Judge and Performance.</small></h2>
+<div class="tools" id="ctab" role="tablist" aria-label="Competition history sections"><button class="on" data-t="res" role="tab" aria-selected="true">Results</button><button data-t="judge" role="tab" aria-selected="false">Judge</button><button data-t="perf" role="tab" aria-selected="false">Performance</button></div>
 <input class="search" id="q" type="search" placeholder="Search events by name" aria-label="Search events">
-<div class="tools fbar"><div class="grp" id="tools" role="group" aria-label="Filter by result"><button class="on" data-f="all">All results</button><button data-f="pod">Podiums</button><button data-f="win">Champion</button></div><span class="sep" aria-hidden="true"></span><div class="grp" id="ctools" role="group" aria-label="Filter by country"></div></div>
+<div class="tools fbar"><div class="grp" id="tools" role="group" aria-label="Filter by result"><button class="on" data-f="all">All results</button><button data-f="pod">Podiums</button><button data-f="win">Champion</button></div><span class="sep" id="fsep" aria-hidden="true"></span><div class="grp" id="ctools" role="group" aria-label="Filter by country"></div></div>
 <p class="hcount" id="hcount" aria-live="polite"></p>
 <div class="hist" id="years"></div>
 </section>
@@ -451,7 +454,7 @@ E(2005,"SG","Singapore Yo-Yo Championships","4A Division",2);E(2005,"SG","Singap
 E(2006,"SG","Singapore Nationals","2A Division",5);E(2006,"SG","Singapore Nationals","4A Division",3);E(2006,"SG","Singapore Nationals","5A Division",5);E(2006,"MY","Asia Pacific Yo-Yo Championships","4A Division",6);E(2006,"MY","Asia Pacific Yo-Yo Championships","5A Division",13);
 E(2007,"SG","West Coast Classics","4A Division",3);E(2007,"SG","West Coast Classics","5A Division",5);E(2007,"SG","Singapore Nationals","4A Division",3);E(2007,"SG","Singapore Nationals","5A Division",5);
 E(2008,"SG","Eastern State Throwdown","Y Division",3);E(2008,"MY","Speed Challenge × Central Yo-Yo Malaysia","Best Trick Contest",1);
-E(2010,"SG","Asia Pacific Yo-Yo Championships","4A Division",10);
+E(2010,"SG","Asia Pacific Yo-Yo Championships","4A Division",10);E(2010,"JP","44 Clash","1A Division",0,"Prelims");E(2010,"JP","44 Clash","X Division",0,"Prelims");
 E(2011,"SG","Singapore Yo-Yo Championships","4A Division",3);E(2011,"SG","Singapore Yo-Yo Championships","5A Division",6);E(2011,"SG","Asia Pacific Yo-Yo Championships","4A Division",9);E(2011,"SG","Singapore West Coast Classic","4A Division",3);
 E(2012,"SG","Singapore Yo-Yo Championships","4A Division",4);E(2012,"SG","Asia Pacific Yo-Yo Championships","4A Division",12);E(2012,"ID","Bali International Yo-Yo Open","4A Division",2);E(2012,"ID","Bali International Yo-Yo Open","Best of the Best Division",4);E(2012,"MY","Central Malaysia Yo-Yo Championship","Long Sleeper Yo-Yo Contest",1,"1st · 9min 44secs");
 E(2013,"SG","Singapore West Coast Classics","4A Division",1);E(2013,"SG","Singapore West Coast Classics","1A Division",6);
@@ -462,7 +465,12 @@ E(2018,"MY","Malaysia International Yo-Yo Open","4A Division",4);
 E(2020,"MY","Malaysia Central Regional Yo-Yo Contest","4A Division",3);E(2020,"MY","Malaysia Central Regional Yo-Yo Contest","3A Division",3);E(2020,"MY","Malaysia Central Regional Yo-Yo Contest","2A Division",3);E(2020,"MY","Malaysia Central Regional Yo-Yo Contest","5A Division",1);
 E(2025,"MY","Malaysia Yo-Yo Championships","4A Division",2);E(2025,"MY","Malaysia Yo-Yo Championships","2A Division",3);
 
-const CN={SG:["","Singapore"],ID:["","Indonesia"],MY:["","Malaysia"],JP:["","Japan"]};
+/* ---------- Judge + Performance: J(year,country,event,detail) / P(year,country,event,detail). Not counted in results stats ---------- */
+const JD=[],PD=[];const J=(y,c,e,d)=>JD.push({y,c,e,d,l:"Judge"});const P=(y,c,e,d)=>PD.push({y,c,e,d,l:"Performance"});
+J(2025,"SG","Singapore Yo-Yo Championship","");J(2024,"MY","Malaysia Yo-Yo Championship","");J(2014,"BN","Brunei National Yo-Yo Competition","");J(2014,"VN","Vietnam National Yo-Yo Championship","");J(2009,"ID","Indonesia National Yo-Yo Championship","");
+P(2024,"MY","Malaysia Yo-Yo Championship","4A Division");P(2014,"BN","Brunei National Yo-Yo Competition","4A Division");P(2014,"VN","Vietnam National Yo-Yo Championship","4A Division");P(2009,"HK","Victoria Harbour Hong Kong Yoyo Competition","4A Division");P(2009,"ID","Indonesia National Yo-Yo Championship","4A Division");P(2003,"HK","Animax TV Channel Hong Kong","Team Play & 4A");P(2003,"TH","Thailand Fat Festival","Team Play, 4A & 5A Division");P(2003,"PH","Philippine Duncan Toys x Ban Kee Promotion","Team Play, 4A & 5A Division");P(2003,"SG","Super Yo-Yo Promotion","Team Play, 4A & 5A Division");
+
+const CN={SG:["","Singapore"],ID:["","Indonesia"],MY:["","Malaysia"],JP:["","Japan"],BN:["","Brunei"],VN:["","Vietnam"],HK:["","Hong Kong"],TH:["","Thailand"],PH:["","Philippines"]};
 const ord=n=>n+(["th","st","nd","rd"][(n%100>10&&n%100<14)?0:(n%10<4?n%10:0)]);
 const lab=r=>r.l||(r.p?ord(r.p):"–");
 const cls=r=>({1:"g",2:"s",3:"t"}[r.p]||"o");
@@ -492,10 +500,23 @@ $("#tb").innerHTML=countries.map(c=>[c,D.filter(r=>r.c==c)]).map(([c,a])=>`<tr><
 $("#tf").innerHTML=`<tr><td>Total</td><td>${n1.length}</td><td>${n2.length}</td><td>${n3.length}</td></tr>`;
 
 /* ---------- Competition browser ---------- */
-let filt="all",cf="all";
+let filt="all",cf="all",tab="res";
 const pc=r=>r.p==1?"g1":cls(r);
-$("#ctools").innerHTML=[["all","All countries"],...countries.map(c=>[c,CN[c][1]])].map(([c,t],i)=>`<button class="${i?"":"on"}" data-c="${c}">${t}</button>`).join("");
+function drawCtools(list){$("#ctools").innerHTML=[["all","All countries"],...[...new Set(list)].map(c=>[c,CN[c][1]])].map(([c,t],i)=>`<button class="${i?"":"on"}" data-c="${c}">${t}</button>`).join("")}
+drawCtools(countries);
+function drawOther(){
+ const q=$("#q").value.trim().toLowerCase(),src=tab=="judge"?JD:PD;let total=0;
+ const ys=[...new Set(src.map(r=>r.y))].sort((a,b)=>b-a);
+ const html=ys.map(y=>{let a=src.filter(r=>r.y==y);
+  if(cf!="all")a=a.filter(r=>r.c==cf);
+  if(q)a=a.filter(r=>(r.e+" "+(r.d||"")+" "+CN[r.c][1]).toLowerCase().includes(q));
+  if(!a.length)return"";total+=a.length;
+  return `<div class="yr"><div class="yh"><b>${y}</b><span>${a.length} ${tab=="judge"?"event":"show"}${a.length>1?"s":""}</span></div><div class="list">${a.map(r=>`<div class="row"><div>${r.e}<small>${CN[r.c][1]}${r.d?" · "+r.d:""}</small></div><div class="pl o">${r.l}</div></div>`).join("")}</div></div>`}).join("");
+ $("#years").innerHTML=html||'<p class="none">No entries match. Try clearing a filter.</p>';
+ $("#hcount").textContent=`Showing ${total} of ${src.length} ${tab=="judge"?"judging appearances":"performances"}`;
+}
 function drawYears(){
+ if(tab!="res")return drawOther();
  const q=$("#q").value.trim().toLowerCase();let total=0;
  const html=[...years].reverse().map(y=>{
   const all=D.filter(r=>r.y==y);let a=all;
@@ -510,6 +531,10 @@ function drawYears(){
 }
 drawYears();
 $("#q").addEventListener("input",drawYears);
+$("#ctab").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;tab=b.dataset.t;cf="all";
+ document.querySelectorAll("#ctab button").forEach(c=>{c.classList.toggle("on",c==b);c.setAttribute("aria-selected",c==b)});
+ const r=tab=="res";$("#tools").style.display=r?"":"none";$("#fsep").style.display=r?"":"none";
+ drawCtools(r?countries:(tab=="judge"?JD:PD).map(x=>x.c));drawYears()});
 [["#tools","f","filt"],["#ctools","c","cf"]].forEach(([sel,k])=>$(sel).addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;
  if(k=="f")filt=b.dataset.f;else cf=b.dataset.c;
  document.querySelectorAll(sel+" button").forEach(c=>c.classList.toggle("on",c==b));drawYears()}));
