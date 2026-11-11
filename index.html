@@ -569,8 +569,8 @@ $("#gal").innerHTML=["Yo-yo player jumping over an off-string yo-yo in front of 
  bs.forEach(b=>b.addEventListener("click",()=>t.scrollBy({left:b.dataset.d*step()})));
  dots.addEventListener("click",e=>{const b=e.target.closest("button");if(b)t.scrollTo({left:b.dataset.i*step()})});
  t.addEventListener("scroll",upd,{passive:true});addEventListener("resize",upd);upd();
- /* latest videos: 3 cards under the slider. Edit this list to change them. */
- const L=["spingear-shop-offstring-performance-in-tokyo-japan-480-ytshorts.savetube.me.mp4","dement-clothing-presents-fajar-siddiq-4a-yo-yo-performance-at-the-wedding-1080-ytshorts.savetube.me.mp4","multi-toys-roadshow-4a-yo-yo-performance-480-ytshorts.savetube.me.mp4"];
+ /* latest videos: 6 cards under the slider (3 per row). Edit this list to change them. */
+ const L=["spingear-shop-offstring-performance-in-tokyo-japan-480-ytshorts.savetube.me.mp4","DCW%20Profile%20-%20Fajar%20Siddiq.mp4","multi-toys-roadshow-4a-yo-yo-performance-480-ytshorts.savetube.me.mp4","MIYO20214.mp4","manja.mp4?v=2","2015world-4a-preliminary-32-fajar-siddiq-1080-ytshorts.savetube.me.mp4"];
  const g=$("#vgrid"),PL='<svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M8 5.2v13.6a.6.6 0 0 0 .92.5l10.6-6.8a.6.6 0 0 0 0-1L8.92 4.7A.6.6 0 0 0 8 5.2z"/></svg>';
  g.innerHTML=L.map((f,i)=>`<figure tabindex="0" role="button" aria-label="Play latest video ${i+1} of ${L.length}: ${C[V.indexOf(f)][0]}" data-src="${B+f}"><img class="vth${T[V.indexOf(f)]==="duncan.webp"?" logo":""}" alt="" src="images/${T[V.indexOf(f)]}" decoding="async"><video muted playsinline preload="none" tabindex="-1" aria-hidden="true"></video><span class="vplay" aria-hidden="true">${PL}</span>${cap(V.indexOf(f))}</figure>`).join("");
  [...g.children].forEach(fig=>{const im=fig.querySelector(".vth"),vd=fig.querySelector("video");
