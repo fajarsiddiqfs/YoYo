@@ -62,11 +62,12 @@ h2.big small{display:block;font-size:.85rem;font-weight:400;letter-spacing:0;col
 .stat b{display:block;font-size:clamp(2rem,6vw,3.2rem);letter-spacing:-.05em;line-height:1}
 .stat span{display:block;margin-top:8px;font-size:.85rem;color:var(--muted)}
 .brands-label{margin:clamp(24px,4vw,40px) 0 0;text-align:center;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.brands{--lh:clamp(22px,5vw,46px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:center;justify-items:center;gap:clamp(16px,3.5vw,36px) clamp(12px,3vw,32px);max-width:760px;margin:8px auto 0;padding:6px 2px}
+.brands{--lh:clamp(22px,5vw,46px);display:grid;grid-template-columns:repeat(10,minmax(0,1fr));align-items:center;justify-items:center;gap:clamp(14px,3vw,32px) clamp(6px,1.5vw,24px);max-width:900px;margin:8px auto 0;padding:6px 2px}
 .brands>*{display:flex;align-items:center;justify-content:center;width:100%;min-height:calc(var(--lh)*1.4);transition:opacity .2s;opacity:.9}
 .brands a:hover,.brands a:focus-visible{opacity:1}
 .brands a:focus-visible{outline:2px solid var(--fg);outline-offset:4px;border-radius:4px}
 .brands img{display:block;width:auto;max-width:100%;object-fit:contain;height:var(--lh)}
+.brands>*{grid-column:span 2}.brands>*:nth-child(6){grid-column:2/span 2}
 .b-spinworkx img{height:calc(var(--lh)*.8)}
 .b-myya img{height:calc(var(--lh)*1.2)}
 .b-apyoyo img{height:calc(var(--lh)*1.1)}
